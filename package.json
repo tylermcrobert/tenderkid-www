@@ -1,0 +1,27 @@
+{
+  "name": "tenderkid-www",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "watch": "npx babel assets/script.js --watch --out-file assets/script.min.js",
+    "start": "live-server | npm run watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tylermcrobert/tenderkid-www.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tylermcrobert/tenderkid-www/issues"
+  },
+  "homepage": "https://github.com/tylermcrobert/tenderkid-www#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "babel-preset-minify": "^0.5.0",
+    "install": "^0.12.2",
+    "npm": "^6.9.0"
+  }
+}
