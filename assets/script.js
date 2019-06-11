@@ -18,7 +18,6 @@ const ribon = {
   setMouseCords(e) {
     this.percentLeft = e.clientX / window.innerWidth;
     this.offset = this.offsetDif * this.percentLeft;
-    console.log(this.offset);
     this.render();
   },
 
