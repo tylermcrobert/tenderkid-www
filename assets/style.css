@@ -1,13 +1,19 @@
 <style>
   * {
-    user-select: none;
+    user-select: none!important;
   }
+
+  @font-face {
+    font-family: 'suisse';
+    src: url(fonts/SuisseIntl-Book.otf);
+  }
+
   html,
   body {
     height: 100%;
   }
   body {
-    font-family: suisseintl-book;
+    font-family: 'suisse', helvetica, sans-serif;
     font-size: 2.6vw;
     text-align: center;
     display: flex;
