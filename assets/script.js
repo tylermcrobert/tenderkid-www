@@ -1,28 +1,35 @@
-(() => {
-  const ribbon = document.querySelector(".info");
-  const ribbonInner = ribbon.querySelector(".info__inner");
-  const cursor = document.querySelector(".cursor");
+const ribon = {
+  init() {
+    this.cacheDom();
+    this.calcOffset();
+    this.bindEvents();
+    this.render();
+  },
 
-  const pxDifference = ribbonInner.offsetWidth - ribbon.offsetWidth;
-  const windowWidth = window.innerWidth;
+  cacheDom() {
+    this.outer = document.querySelector(".info");
+    this.inner = this.outer.querySelector(".info__inner");
+  },
 
-  let mousePos = 0;
-  let offset = 0;
+  calcOffset() {
+    this.offsetDif = this.inner.offsetWidth - this.outer.offsetWidth;
+  },
 
-  const handleMouseMove = e => {
-    calc(e.clientX);
-    render();
-    console.log(cursor);
-  };
+  setMouseCords(e) {
+    this.percentLeft = e.clientX / window.innerWidth;
+    this.offset = this.offsetDif * this.percentLeft;
+    console.log(this.offset);
+    this.render();
+  },
 
-  const calc = pxLeft => {
-    percentLeft = pxLeft / windowWidth;
-    offset = pxDifference * percentLeft;
-  };
+  bindEvents() {
+    document.addEventListener("mousemove", e => this.setMouseCords(e));
+    document.addEventListener("resize", e => this.setMouseCords(e));
+  },
 
-  const render = () => {
-    ribbonInner.style.transform = `translatex(-${offset}px)`;
-  };
+  render() {
+    this.inner.style.transform = `translatex(-${this.offset}px)`;
+  }
+};
 
-  document.addEventListener("mousemove", handleMouseMove);
-})();
+ribon.init();
